@@ -13,7 +13,7 @@ function Write-ConnectionLog () {
     param(
         [string]$State,
         [datetime]$Timestamp,
-        [string]$Filename,
+        [string]$Filename
         )
 
     if (! (Test-Path -Path $ConnectionLog) ) {
