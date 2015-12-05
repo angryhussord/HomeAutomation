@@ -17,6 +17,7 @@ function Write-ConnectionLog () {
         )
 
     if (! (Test-Path -Path $ConnectionLog) ) {
+        md "c:\HomeAutomation\Logs\Phone\" | Out-Null;
         Set-Content $ConnectionLog "[$Timestamp] Device status changed to $State.";
     } else {
         if ($State -eq "Sleep") {
