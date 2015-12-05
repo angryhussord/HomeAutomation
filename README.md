@@ -1,1 +1,2 @@
 # HomeAutomation
+This project is a collection of scripts and modules to support my home automation needs. It's starting with a bunch of scripts that support detection of my cell phone on my home Wifi network and then taking action when that device comes online or goes offline. This requires that I always know my cell phone's IP, which is pretty easy to do with a DHCP reversation. I also need to know the MAC address of my desktop's NIC. That's easy enough to grab with ipconfig /all.
