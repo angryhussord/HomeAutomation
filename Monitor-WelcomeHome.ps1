@@ -3,7 +3,7 @@
 param (
     $password,
     $username,
-    $ip
+    $ip='192.168.1.201'
 )
 
 $online = $false;
