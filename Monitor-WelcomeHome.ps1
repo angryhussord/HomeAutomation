@@ -47,7 +47,6 @@ while ($true) {
             #Continued to stay Online
             #Update the time it was last seen online
             $last_seen = Get-Date;
-            $last_state = $true;
         } else {
             #Newly Connected
             #Send text message welcome
@@ -69,7 +68,6 @@ while ($true) {
             Write-ConnectionLog -State "Disconnected" -Timestamp $curr_time -Filename $ConnectionLog;
         } else {
             #Continue to be offline
-            $last_state = $false;
             #Only change state to false if it's been a few minutes since the last time we were online
             $timespan = $curr_time - $last_seen;
             if ($timespan.Minutes -gt $DisconnectTimeout) {
