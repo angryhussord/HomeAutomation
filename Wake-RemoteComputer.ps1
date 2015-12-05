@@ -1,7 +1,7 @@
 param (
 	[string]$mac
 )
-#$Mac = "1A:2B:3C:4D:5E:6F";
+#$Mac = "C8-60-00-BD-48-CA";
 $MacByteArray = $mac -split "[:-]" | ForEach-Object { [Byte] "0x$_"};
 [Byte[]] $MagicPacket = (,0xFF * 6) + ($MacByteArray  * 16);
 $UdpClient = New-Object System.Net.Sockets.UdpClient;
