@@ -15,7 +15,8 @@ while ($true) {
 			$online = $true;
 			$PWord = ConvertTo-SecureString –String $password –AsPlainText -Force
 			$Credential = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $username, $PWord
-			Send-MailMessage -To 4252933450@vtext.com -From "hufford@gmail.com" -Body "Welcome Home Patrick! You reconnected to 3602 Oakes Ave. at $(Get-Date). Enjoy your stay." -SmtpServer "smtp.gmail.com" -Subject "Welcome Home!" -Credential $Credential -Port 587 -UseSsl;
+			Send-MailMessage -To 4252933450@vtext.com -From "hufford@gmail.com" -Body "Welcome Home Patrick! You reconnected at $(Get-Date). Enjoy your stay." -SmtpServer "smtp.gmail.com" -Subject "Welcome Home!" -Credential $Credential -Port 587 -UseSsl;
+            Wake-RemoteComputer.ps1 -mac "C8-60-00-BD-48-CA";
 			$welcome_sent = $true;
 		} else {
             #ip is pingable, welcome message sent...not much else to do but continue to monitor
