@@ -6,7 +6,7 @@ param (
     $ip='192.168.1.201'
 )
 
-Set-Variable DisconnectTimeout -option Constant -value 5;
+Set-Variable DisconnectTimeout -option Constant -value 2;
 Set-Variable ConnectionLog -option Constant -value "c:\HomeAutomation\Logs\Phone\Patrick-GS6.log";
 
 function Write-ConnectionLog () {
@@ -34,8 +34,6 @@ $last_state = $false;
 $last_seen = Get-Date;
 $curr_state = $false;
 $curr_time = Get-Date;
-
-$last_state_change = $null;
 
 while ($true) {
 	#Check to see if it's online
@@ -74,7 +72,7 @@ while ($true) {
                 $last_state = $false;
             }
             #If it's been 30 minutes that we've been continuously offline, send a Sleep command to the workstation
-            if ($timespan.Minutes -gt ($DisconnectTimeout * 5)) {
+            if ($timespan.Minutes -gt ($DisconnectTimeout * 10)) {
                 #Send a sleep command to dagathon.hufford.org
                 $session = New-PSSession -ComputerName dagathon.hufford.org -Credential $Credential;
                 [ScriptBlock]$Block = {
