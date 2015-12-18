@@ -48,6 +48,10 @@ while ($true) {
 		} else {
 			#Newly Connected
 			#Send text message welcome
+			#AT&T: @txt.att.net
+			#T-Mob: @tmomail.net
+			#Verzion: @vtext.com
+			#Sprint: @messaging.sprintpcs.com
 			Send-MailMessage -To 4252933450@vtext.com -From "hufford@gmail.com" -Body "Welcome Home Patrick! You reconnected at $(Get-Date). Enjoy your stay." -SmtpServer "smtp.gmail.com" -Subject "Welcome Home!" -Credential $Credential -Port 587 -UseSsl;
 			#Wake up workstation
 			.\Send-MagicPacket.ps1 -mac "C8-60-00-BD-48-CA";
